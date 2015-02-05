@@ -10,6 +10,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import no.hib.dat153.publictoilet.MainActivity;
 import no.hib.dat153.publictoilet.modell.Entry;
 
 /**
@@ -35,13 +36,20 @@ public class JsonParser {
         try {
             for(int i = 0; i< json.length(); i++){
                 temp = new Entry();
-                temp.setLatitude(json.getJSONObject(i).get("latitude").toString());
-                temp.setLongitude(json.getJSONObject(i).get("longitude").toString());
+                temp.setPissoir_only(json.getJSONObject(i).get("pissoir_only").toString());
                 temp.setAdresse(json.getJSONObject(i).get("adresse").toString());
+                temp.setRullestol(json.getJSONObject(i).get("rullestol").toString());
+                temp.setPlassering(json.getJSONObject(i).get("plassering").toString());
+                temp.setStellerom(json.getJSONObject(i).get("stellerom").toString());
+                temp.setPris(json.getJSONObject(i).get("pris").toString());
+                temp.setLongitude(json.getJSONObject(i).get("longitude").toString());
+                temp.setLatitude(json.getJSONObject(i).get("latitude").toString());
+                temp.setPlace(json.getJSONObject(i).get("place").toString());
+
+
                 list.add(temp);
             }
         } catch (JSONException e) {
-            Log.v(MainActivity.DEBUG_TAG, "JSONException " + e.toString());
             e.printStackTrace();
         }
 
